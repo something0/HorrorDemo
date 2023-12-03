@@ -1,0 +1,47 @@
+[gd_scene load_steps=9 format=3 uid="uid://cl1j8gju3it7n"]
+
+[ext_resource type="PackedScene" uid="uid://dbimffs73vypx" path="res://Assets/scopoedPsitol.blend" id="1_32pty"]
+[ext_resource type="Shader" path="res://scope.gdshader" id="2_b7tkh"]
+[ext_resource type="Shader" path="res://weapon.gdshader" id="2_ljf62"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6wn6m"]
+render_priority = 0
+shader = ExtResource("2_ljf62")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y7oc4"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wr5b6"]
+render_priority = 0
+shader = ExtResource("2_b7tkh")
+
+[sub_resource type="Sky" id="Sky_l75xk"]
+
+[sub_resource type="Environment" id="Environment_ow2lv"]
+background_mode = 2
+sky = SubResource("Sky_l75xk")
+ambient_light_source = 1
+ambient_light_color = Color(0.54902, 0.0705882, 0.211765, 1)
+ssao_intensity = 16.0
+fog_enabled = true
+fog_light_color = Color(0.25098, 0.407843, 0.027451, 1)
+fog_sun_scatter = 1.0
+fog_density = 0.1496
+volumetric_fog_density = 0.0851
+volumetric_fog_albedo = Color(0, 0.32549, 0.0196078, 1)
+volumetric_fog_emission = Color(0, 0.592157, 0, 1)
+
+[node name="scopoedPsitol" instance=ExtResource("1_32pty")]
+
+[node name="Cube" parent="." index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_6wn6m")
+surface_material_override/1 = SubResource("StandardMaterial3D_y7oc4")
+surface_material_override/2 = SubResource("ShaderMaterial_wr5b6")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." index="1"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0.213347, 1.41168)
+
+[node name="Camera3D" type="Camera3D" parent="." index="2"]
+transform = Transform3D(0.642788, 0, 0.766044, 0, 1, 0, -0.766044, 0, 0.642788, -1.08599, 1.42681, 0)
+environment = SubResource("Environment_ow2lv")
+current = true
+fov = 15.9494

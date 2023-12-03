@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnbenvhiaurbk"]
+
+[ext_resource type="PackedScene" uid="uid://danrwoj7qw1my" path="res://Assets/_ chair.blend" id="1_i43a7"]
+
+[node name="Chair" type="Node3D"]
+
+[node name="_ chair" parent="." instance=ExtResource("1_i43a7")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.888198, 0, 1.2907)

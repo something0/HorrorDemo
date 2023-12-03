@@ -1,0 +1,186 @@
+[gd_scene load_steps=15 format=3 uid="uid://uk2swt1wu5f0"]
+
+[ext_resource type="Script" path="res://PlayerMovement.gd" id="1_clg5j"]
+[ext_resource type="PackedScene" uid="uid://d282qyoum7hlv" path="res://Crosshair.tscn" id="3_ly8l3"]
+[ext_resource type="PackedScene" uid="uid://cl1j8gju3it7n" path="res://weapon.tscn" id="3_ou12x"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_psvm1"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_efe5w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2d483"]
+size = Vector3(0.868969, 0.375309, 0.803387)
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ttn53"]
+
+[sub_resource type="Sky" id="Sky_a2rmr"]
+sky_material = SubResource("ProceduralSkyMaterial_ttn53")
+
+[sub_resource type="Environment" id="Environment_c16us"]
+background_color = Color(0.054902, 0, 0, 1)
+sky = SubResource("Sky_a2rmr")
+ambient_light_sky_contribution = 0.8
+fog_enabled = true
+fog_light_color = Color(0.521569, 0.635294, 0.682353, 1)
+fog_sun_scatter = 0.1
+fog_density = 0.1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.15
+
+[sub_resource type="Animation" id="Animation_cwm61"]
+resource_name = "Aim"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.2, 2.2, 2.5),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector3(0.177631, -0.161388, -0.273518), Vector3(0.0351979, -0.14, -0.253358), Vector3(0.0140791, -0.14, -0.248964)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.2, 2.2, 2.5),
+"transitions": PackedFloat32Array(2, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.71239, 0), Vector3(0, 5.41052, 0), Vector3(0, 5.41052, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_671fn"]
+resource_name = "AimShoot"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0.0140791, -0.14, -0.248964), Vector3(0.0140791, -0.14, -0.212081), Vector3(0.0140791, -0.14, -0.248964)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1, 2.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 5.41052, 0), Vector3(0.101229, 5.41052, -0.120428), Vector3(0, 5.41052, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_m70af"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.3, -0.12, -0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 4.53786, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gdj72"]
+resource_name = "shoot"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.2, 2.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 1, 1),
+"update": 0,
+"values": [Vector3(0.3, -0.12, -0.2), Vector3(0.3, -0.0945098, -0.2), Vector3(0.3, -0.228712, -0.2), Vector3(0.3, -0.12, -0.2)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.2, 2.5),
+"transitions": PackedFloat32Array(0.5, 0.5, 1, 1),
+"update": 0,
+"values": [Vector3(0, 4.53786, 0), Vector3(-0.0715585, 4.53786, -0.698132), Vector3(0.0401426, 4.53786, 0.233874), Vector3(0, 4.53786, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_18fj6"]
+_data = {
+"Aim": SubResource("Animation_cwm61"),
+"AimShoot": SubResource("Animation_671fn"),
+"RESET": SubResource("Animation_m70af"),
+"shoot": SubResource("Animation_gdj72")
+}
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_clg5j")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_psvm1")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_efe5w")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.52979, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.344309, 0)
+shape = SubResource("BoxShape3D_2d483")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+environment = SubResource("Environment_c16us")
+
+[node name="weapon" parent="Camera3D" instance=ExtResource("3_ou12x")]
+transform = Transform3D(-0.0173644, 0, -0.0984808, 0, 0.0999999, 0, 0.0984808, 0, -0.0173644, 0.3, -0.12, -0.2)
+
+[node name="Crosshair" parent="Camera3D/weapon" instance=ExtResource("3_ly8l3")]
+
+[node name="RayCast3D" type="RayCast3D" parent="Camera3D"]
+transform = Transform3D(0, 0, -0.1, 0, 0.1, 0, 0.1, 0, 0, -1.11759e-08, 0, -0.05)
+target_position = Vector3(-400, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../Camera3D/weapon")
+libraries = {
+"": SubResource("AnimationLibrary_18fj6")
+}
+
+[connection signal="body_shape_entered" from="Area3D" to="." method="_on_area_3d_body_shape_entered"]
+[connection signal="body_shape_exited" from="Area3D" to="." method="_on_area_3d_body_shape_exited"]
+[connection signal="animation_changed" from="AnimationPlayer" to="." method="_on_animation_player_animation_changed"]

@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bbisecr4w8qhj"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_ttn53"]
+
+[sub_resource type="Sky" id="Sky_a2rmr"]
+sky_material = SubResource("ProceduralSkyMaterial_ttn53")
+
+[sub_resource type="Environment" id="Environment_wbi8a"]
+background_color = Color(0.054902, 0, 0, 1)
+sky = SubResource("Sky_a2rmr")
+ambient_light_sky_contribution = 0.8
+fog_enabled = true
+fog_light_color = Color(0.521569, 0.635294, 0.682353, 1)
+fog_sun_scatter = 0.1
+fog_density = 0.1
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.15
+
+[node name="WorldEnvironment" type="WorldEnvironment"]
+environment = SubResource("Environment_wbi8a")

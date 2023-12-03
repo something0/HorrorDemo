@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://d282qyoum7hlv"]
+
+[ext_resource type="Script" path="res://stamina.gd" id="1_tjt6t"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ibj8y"]
+draw_center = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_co7jv"]
+bg_color = Color(0.435294, 0.670588, 0.411765, 1)
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -5.0
+offset_right = 5.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -424.0
+offset_right = 77.0
+offset_bottom = -6.0
+grow_vertical = 0
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel2"]
+layout_mode = 0
+offset_left = 1.0
+offset_right = 75.0
+offset_bottom = 420.0
+theme_override_styles/background = SubResource("StyleBoxFlat_ibj8y")
+theme_override_styles/fill = SubResource("StyleBoxFlat_co7jv")
+value = 100.0
+fill_mode = 3
+show_percentage = false
+script = ExtResource("1_tjt6t")
